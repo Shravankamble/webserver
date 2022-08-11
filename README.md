@@ -5,5 +5,6 @@
 - now you can check/search on chrome or whatever browser you like just search this - `localhost:8080/form.html`.
 - add submit your request and it'll redirect you to the result page. 
 
-# installation
-`go.`
+# requirement
+- ***go Installed***
+- version - `go.1.18`
