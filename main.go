@@ -4,7 +4,52 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strconv"
 )
+
+func table(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		fmt.Fprintf(w, "ParseForm() err : %v", err)
+		return
+	}
+	fmt.Fprintf(w, "Table of given Integer : ")
+	fmt.Println()
+	num := r.FormValue("Integer")
+	Int, err := strconv.Atoi(num)
+	if err != nil {
+		panic(err)
+	}
+	for i := 1; i < 11; i++ {
+		ans := Int * i
+		fmt.Fprintf(w, "%v %v %v %v %v\n", num, "x", i, "=", strconv.Itoa(ans))
+	}
+}
+
+func content(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		fmt.Fprintf(w, "PasrsForm() err : %v", err)
+		return
+	}
+	fmt.Fprintf(w, "ANSWER : ")
+	number1 := r.FormValue("number1")
+	number2 := r.FormValue("number2")
+	num1, err := strconv.Atoi(number1)
+	if err != nil {
+		panic(err)
+	}
+	num2, err := strconv.Atoi(number2)
+	if err != nil {
+		panic(err)
+	}
+	sum := num1 + num2
+	add := strconv.Itoa(sum)
+	// publish := sum
+	// fmt.Fprintf(w, "num1 : %v\n", number1)
+	// fmt.Fprintf(w, "num2 : %v\n", number2)
+	fmt.Fprintf(w, "ANS : %v\n", add)
+}
 
 func forms(w http.ResponseWriter, r *http.Request) {
 	err := r.ParseForm()
@@ -36,6 +81,8 @@ func main() {
 	http.Handle("/", fileserver)
 	http.HandleFunc("/form", forms)
 	http.HandleFunc("/hello", hello)
+	http.HandleFunc("/content", content)
+	http.HandleFunc("/table", table)
 
 	fmt.Printf("starting server at port 8080 : ")
 	err := http.ListenAndServe(":8080", nil)
