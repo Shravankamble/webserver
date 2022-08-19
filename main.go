@@ -14,6 +14,7 @@ func table(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Fprintf(w, "Table of given Integer : ")
+	fmt.Fprintln(w, "   ")
 	fmt.Println()
 	num := r.FormValue("Integer")
 	Int, err := strconv.Atoi(num)
@@ -32,7 +33,7 @@ func content(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "PasrsForm() err : %v", err)
 		return
 	}
-	fmt.Fprintf(w, "ANSWER : ")
+	// fmt.Fprintf(w, "ANSWER : ")
 	number1 := r.FormValue("number1")
 	number2 := r.FormValue("number2")
 	num1, err := strconv.Atoi(number1)
@@ -48,7 +49,7 @@ func content(w http.ResponseWriter, r *http.Request) {
 	// publish := sum
 	// fmt.Fprintf(w, "num1 : %v\n", number1)
 	// fmt.Fprintf(w, "num2 : %v\n", number2)
-	fmt.Fprintf(w, "ANS : %v\n", add)
+	fmt.Fprintf(w, "the sum of given two numbers is : %v\n", add)
 }
 
 func forms(w http.ResponseWriter, r *http.Request) {
@@ -57,7 +58,7 @@ func forms(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "ParseForm() err : %v", err)
 		return
 	}
-	fmt.Fprintf(w, "POST request successful")
+	fmt.Fprintf(w, "POST request successful! ")
 	fmt.Println()
 	name := r.FormValue("name")
 	surname := r.FormValue("surname")
