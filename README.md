@@ -14,4 +14,4 @@ something like this,
 - version - `go.1.18`
 <hr>
 
-- resource [here](https://github.com/Shravankamble/webserver) 
+- resource [here](https://www.youtube.com/watch?v=jFfo23yIWac&t=1235s) 
