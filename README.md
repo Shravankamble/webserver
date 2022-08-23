@@ -10,3 +10,5 @@
 # requirement
 - ***go Installed***
 - version - `go.1.18`
+
+- resource [here](https://github.com/Shravankamble/webserver)
