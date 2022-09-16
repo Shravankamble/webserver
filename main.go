@@ -33,7 +33,6 @@ func content(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "PasrsForm() err : %v", err)
 		return
 	}
-	// fmt.Fprintf(w, "ANSWER : ")
 	number1 := r.FormValue("number1")
 	number2 := r.FormValue("number2")
 	num1, err := strconv.Atoi(number1)
@@ -46,9 +45,6 @@ func content(w http.ResponseWriter, r *http.Request) {
 	}
 	sum := num1 + num2
 	add := strconv.Itoa(sum)
-	// publish := sum
-	// fmt.Fprintf(w, "num1 : %v\n", number1)
-	// fmt.Fprintf(w, "num2 : %v\n", number2)
 	fmt.Fprintf(w, "the sum of given two numbers is : %v\n", add)
 }
 
